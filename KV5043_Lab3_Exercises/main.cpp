@@ -5,13 +5,18 @@
 #include <sstream>
 #include "window.h"
 
+namespace FileParameters {
+	const std::string FILE_NAME = "windowParameters.txt";
+	const char DELIMITER = ',';
+}
+
 int main(int argc, char* argv[])
 {
 	//ToDo: Declare an input file stream object named inputFile
 	std::ifstream inputFile;
 		
 	//ToDo: Open the inputFile object using the "windowParameters.txt" file
-	inputFile.open("windowParameters.txt");
+	inputFile.open(FileParameters::FILE_NAME);
 	
 	if (inputFile.is_open())
 	{
@@ -31,11 +36,11 @@ int main(int argc, char* argv[])
 			/*ToDo: Use the getline() function with a delimiter to work on the sStream object and store each of the comma seperated
 			* values in the file to the five string variables decclared above
 			*/
-			std::getline(sStream, windowName, ',');
-			std::getline(sStream, strX, ',');
-			std::getline(sStream, strY, ',');
-			std::getline(sStream, strWidth, ',');
-			std::getline(sStream, strHeight, ',');
+			std::getline(sStream, windowName, FileParameters::DELIMITER);
+			std::getline(sStream, strX, FileParameters::DELIMITER);
+			std::getline(sStream, strY, FileParameters::DELIMITER);
+			std::getline(sStream, strWidth, FileParameters::DELIMITER);
+			std::getline(sStream, strHeight, FileParameters::DELIMITER);
 			//ToDo: use the stoi() function to convert the strings to integers where required.
 			try
 			{
